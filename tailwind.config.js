@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         clifford: '#da373d',
-        yellow : '#ffc300 '
+        yellow : '#8fce00 '
       },
       fontFamily:{
         satisfy : ['Satisfy', 'cursive'],

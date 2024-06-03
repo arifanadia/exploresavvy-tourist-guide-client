@@ -1,0 +1,66 @@
+[
+    {
+    "id": 1,
+    "tourType": "Adventure",
+    "tripTitle": "Mountain Hiking",
+    "price": "1000",
+    "mainImage": "https://i.ibb.co/9Ht1DdR/mountainhinking.jpg",
+    "images": ["mountain_hiking1.jpg", "mountain_hiking2.jpg", "mountain_hiking3.jpg"]
+  },
+  {
+    "id": 2,
+    "tourType": "Relaxation",
+    "tripTitle": "Beach Resort",
+    "price": "2000",
+    "mainImage": "https://i.ibb.co/qrLw2gT/beach-ressort.jpg",
+    "images": ["beach_resort1.jpg", "beach_resort2.jpg", "beach_resort3.jpg"]
+  },
+  {
+    "id": 3,
+    "tourType": "Cultural",
+    "tripTitle": "City Tour",
+    "price": "500",
+    "mainImage": "https://i.ibb.co/FnJrNKg/sonargaon.jpg",
+    "images": ["city_tour1.jpg", "city_tour2.jpg", "city_tour3.jpg"]
+  },
+  {
+    "id": 4,
+    "tourType": "Wildlife",
+    "tripTitle": "Safari Adventure",
+    "price": "3000",
+    "mainImage": "https://i.ibb.co/5Fhjn1K/safari.jpg",
+    "images": ["safari1.jpg", "safari2.jpg", "safari3.jpg"]
+  },
+  {
+    "id": 5,
+    "tourType": "Historical",
+    "tripTitle": "Ancient Ruins",
+    "price": "1500",
+    "mainImage": "https://i.ibb.co/vkDLdf7/ancient-ruins.jpg",
+    "images": ["ancient_ruins1.jpg", "ancient_ruins2.jpg", "ancient_ruins3.jpg"]
+  },
+  {
+    "id": 6,
+    "tourType": "Adventure",
+    "tripTitle": "River Rafting",
+    "price": "1200",
+    "mainImage": "https://i.ibb.co/YZrhcPw/river-rafting.jpg",
+    "images": ["river_rafting1.jpg", "river_rafting2.jpg", "river_rafting3.jpg"]
+  },
+  {
+    "id": 7,
+    "tourType": "Relaxation",
+    "tripTitle": "Spa Retreat",
+    "price": "2500",
+    "mainImage": "https://i.ibb.co/NFfz1xF/spa-retreat.jpg",
+    "images": ["spa_retreat1.jpg", "spa_retreat2.jpg", "spa_retreat3.jpg"]
+  },
+  {
+    "id": 8,
+    "tourType": "Cultural",
+    "tripTitle": "Museum Tour",
+    "price": "800",
+    "mainImage": "https://i.ibb.co/q7b8m5J/museum-tour.jpg",
+    "images": ["museum_tour1.jpg", "museum_tour2.jpg", "museum_tour3.jpg"]
+  }
+]
