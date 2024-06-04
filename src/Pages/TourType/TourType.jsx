@@ -39,7 +39,7 @@ const TourType = () => {
                     </SwiperSlide >
 
                     <SwiperSlide  >
-                    <TourTypeCard img={icon2} type={'Nature'}
+                    <TourTypeCard img={icon2} type={'wildlife'}
                      quote={'"Traveling – it leaves you speechless, then turns you into a storyteller. - Ibn Battuta"'}/>
                     </SwiperSlide >
 
