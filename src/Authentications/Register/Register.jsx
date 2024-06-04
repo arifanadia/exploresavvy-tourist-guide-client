@@ -1,9 +1,38 @@
 import bg from '../../assets/aUTH/tourTypebg.jpg'
 import png from '../../assets/aUTH/log.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import useAuth from '../../Hooks/useAuth';
+import { useFormik } from 'formik';
+import { signUpSchema } from '../../Schemas';
+import toast from 'react-hot-toast';
 
+
+const initialValues = {
+    name: '',
+    photo: '',
+    email: '',
+    password: '',
+}
 const Register = () => {
+    const { createUser, updateUserProfile, setUser, user } = useAuth();
+    const navigate = useNavigate();
+
+    const { values, handleChange, touched, handleSubmit, errors } = useFormik({
+        initialValues: initialValues,
+        validationSchema: signUpSchema,
+        onSubmit: async (values) => {
+            console.log(values);
+            const result = await createUser(values.email, values.password);
+            console.log(result)
+            await updateUserProfile(values.name, values.photo)
+            setUser({ ...user, displayName: values.name, photoURL: values.photo })
+
+            navigate('/')
+            toast.success('sign up successfully')
+
+        }
+    })
     return (
 
         <div className='bg-no-repeat bg-cover bg-center py-24 '
@@ -25,32 +54,52 @@ const Register = () => {
                         <h1 className='md:text-xl font-bold '>Create your account</h1>
                         <p className='my-4'>It&apos;s free and easy</p>
                     </div>
-                    <form className=' rounded-xl px-12 pt-6'>
+                    <form onSubmit={handleSubmit} className=' rounded-xl px-12 pt-6'>
                         <div className=''>
                             <div className="form-control w-full ">
                                 <div className="label">
                                     <span className="label-text">Name</span>
                                 </div>
-                                <input type="text" placeholder="Type here" className="input input-bordered w-full" />
+                                <input 
+                                type="text" placeholder="Your Name" 
+                                name='name' value={values.name}
+                                onChange={handleChange}
+                                className="input input-bordered w-full" />
                             </div>
+                            {errors.name && touched.name && <p className="text-red-600">{errors.name}</p>}
                             <div className="form-control w-full ">
                                 <div className="label">
                                     <span className="label-text">Photo</span>
                                 </div>
-                                <input type="url" placeholder="Type here" className="input input-bordered w-full" />
+                                <input
+                                 type="url" placeholder="PhotoURL"
+                                name='photo' value={values.photo}
+                                onChange={handleChange}
+                                 className="input input-bordered w-full" />
                             </div>
+                            {errors.photo && touched.photo && <p className="text-red-600">{errors.photo}</p>}
                             <div className="form-control w-full ">
                                 <div className="label">
                                     <span className="label-text">Email</span>
                                 </div>
-                                <input type="email" placeholder="Type here" className="input input-bordered w-full" />
+                                <input
+                                 type="email" placeholder="Your Email" 
+                                 name='email' value={values.email}
+                                onChange={handleChange}
+                                className="input input-bordered w-full" />
                             </div>
+                            {errors.email && touched.email && <p className="text-red-600">{errors.email}</p>}
                             <div className="form-control w-full ">
                                 <div className="label">
                                     <span className="label-text">Password</span>
                                 </div>
-                                <input type="password" placeholder="Type here" className="input input-bordered w-full" />
+                                <input 
+                                type="password" placeholder="Type here" 
+                                name='password' value={values.password}
+                                onChange={handleChange}
+                                className="input input-bordered w-full" />
                             </div>
+                            {errors.password && touched.password && <p className="text-red-600">{errors.password}</p>}
                         </div>
                         <button type='submit ' className='btn my-4 btn-outline text-white bg-black w-full'>Sign Up</button>
                     </form>
