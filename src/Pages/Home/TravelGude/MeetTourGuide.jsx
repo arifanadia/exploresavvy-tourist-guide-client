@@ -14,7 +14,7 @@ console.log(data);
         <div className="grid lg:grid-cols-3 gap-6 mt-12">
             {
                 data.map(item =>
-                    <div key={item.id} className="w-full max-w-md px-8 py-4 mt-16 bg-gray-900 rounded-lg shadow-lg ">
+                    <div key={item.id} className="w-full max-w-md mx-auto px-8 py-4 mt-16 bg-gray-900 rounded-lg shadow-lg ">
                         <div className="flex justify-center -mt-16 md:justify-end">
                             <img className="object-cover w-28 h-28 border-2 border-yellow rounded-full " alt="Testimonial avatar" src={item.photo} />
                         </div>

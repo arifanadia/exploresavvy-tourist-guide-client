@@ -9,15 +9,15 @@ const TravelGuide = () => {
     const [tabIndex, setTabIndex] = useState(0);
     return (
         <section className="my-12 text-black max-w-7xl mx-auto">
-            <div className="flex  gap-8">
-                <div className="relative">
-                    <h1 className="text-3xl lg:text-5xl text-center font-semibold leading-loose font-satisfy lg:text-left ">
+            <div className="md:flex text-center md:text-left gap-8">
+                <div className="relative ">
+                    <h1 className="text-3xl lg:text-4xl  font-semibold leading-loose font-satisfy md:text-left ">
                         Welcome To Our ExploreSavvy </h1>
-                    <div className="bg-yellow w-20 left-96 top-2 h-20 rounded-full opacity-35 absolute"></div>
-                    <h3 className="font-maven text-xl font-medium text-yellow my-6">Your Gateway to Unforgettable Adventures</h3>
+                    <div className="bg-yellow w-16 left-72 top-2 h-16 rounded-full opacity-35 absolute"></div>
+                    <h3 className="font-maven  text-xl font-medium text-yellow my-6">Your Gateway to Unforgettable Adventures</h3>
                 </div>
                 
-                <p className="w-2/5"> At Explore Savvy, we believe in creating travel experiences that are
+                <p className="md:w-2/4 md:text-left text-center"> At Explore Savvy, we believe in creating travel experiences that are
                     both immersive and unforgettable. Our expert local guides take you off
                     the beaten path to discover the hidden gems and rich cultural stories of
                     each destination. Whether you&apos;re seeking adventure, relaxation, or a
