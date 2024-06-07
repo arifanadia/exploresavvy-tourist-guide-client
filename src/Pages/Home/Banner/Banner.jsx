@@ -3,7 +3,7 @@ import banner1 from '../../../assets/home/banner1.png'
 import banner2 from '../../../assets/home/banner2.png'
 const Banner = () => {
     return (
-        <div className='flex-col-reverse flex md:flex-row  items-center bg-gray-50 gap-8 lg:py-36 py-20'>
+        <div className='flex-col-reverse flex md:flex-row  items-center bg-gray-50 gap-8 lg:py-24 py-20'>
             <div className='md:w-1/3'>
                 <img className='w-1/2 md:w-full mx-auto' src={banner1} alt="" />
 

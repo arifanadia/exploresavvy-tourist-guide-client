@@ -4,84 +4,93 @@ import 'swiper/css';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const MeetTourGuide = () => {
     const [data, setData] = useState([]);
+    const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
-        fetch('TourGuide.json')
-            .then(res => res.json())
-            .then(data => setData(data))
-    }, [])
+        const fetchTourData = async () => {
+            const res = await axiosSecure.get('/tourGuides')
+            console.log(res.data);
+            setData(res.data)
+
+        }
+        fetchTourData()
+
+    }, [axiosSecure])
     console.log(data);
     return (
 
-        <div>
+        <Link to={`/tour-guide-details/${data._id}`}>
+            <div>
 
 
-            <Swiper
-                breakpoints={{
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
-                    },
-                }}
-                slidesPerView={4}
-                spaceBetween={30}
-                grabCursor={true}
-                pagination={{
-                    clickable: true,
-                }}
-             
-                modules={[Pagination,Navigation]}
-                className="mySwiper "
-            >
+                <Swiper
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 30,
+                        },
+                    }}
+                    slidesPerView={4}
+                    spaceBetween={30}
+                    grabCursor={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+
+                    modules={[Pagination, Navigation]}
+                    className="mySwiper "
+                >
 
 
-                {
-                    data.map(item =>
-                        <SwiperSlide key={item.id} >
-                            <div className="w-full max-w-md mx-auto px-8 py-4 mt-16 bg-gray-900 rounded-lg shadow-lg ">
-                                <div className="flex justify-center -mt-16 md:justify-end">
-                                    <img className="object-cover w-28 h-28 border-2 border-yellow rounded-full " alt="Testimonial avatar" src={item.photo} />
+                    {
+                        data.map(guide =>
+                            <SwiperSlide key={guide.id} >
+                                <div className="bg-gray-100 rounded-xl relative w-72 h-80 mt-12">
+                                    <div>
+                                        <img className=" w-full h-[200px] rounded-t-xl" src={guide.photo} alt="tour guide image" />
+                                    </div>
+                                    <div className="rounded-b-xl flex gap-4 p-6 text-2xl text-center justify-center mt-8 ">
+                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaFacebook /></p>
+                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaTwitter /></p>
+                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaYoutube /></p>
+                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaInstagram /></p>
+
+                                    </div>
+                                    <div className="absolute right-2 text-gray-50 left-2 rounded-xl text-center bottom-20 bg-gray-900 p-2">
+                                        <h3 className="text-xl font-semibold font-maven mt-2">{guide.name}</h3>
+                                        <p className="my-2">Tour Guide</p>
+
+                                    </div>
                                 </div>
 
-                                <h2 className="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0">{item.name}</h2>
 
-                                <p className="mt-2 text-sm text-gray-600 dark:text-gray-200">{item.bio}</p>
+                            </SwiperSlide >
 
-                                <div className="flex justify-end mt-4">
-                                    <button className="btn bg-yellow text-black">See Details</button>
-                                </div>
-                            </div>
+                        )
 
+                    }
+                </Swiper >
 
-                        </SwiperSlide >
-
-                    )
-
-                }
-
-
-
-
-
-
-            </Swiper >
-
-        </div>
+            </div>
+        </Link>
 
     );
 };
