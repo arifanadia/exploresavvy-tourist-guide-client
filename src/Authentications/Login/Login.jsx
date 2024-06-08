@@ -5,6 +5,7 @@ import { FaArrowLeftLong } from 'react-icons/fa6';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import useAuth from '../../Hooks/useAuth';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const initialValues = {
@@ -13,7 +14,7 @@ const initialValues = {
 }
 
 const Login = () => {
-    const { login} = useAuth();
+    const { login } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/"
@@ -24,9 +25,9 @@ const Login = () => {
             console.log(values);
             const result = await login(values.email, values.password);
             console.log(result)
-           
 
-            navigate(from, {replace : true})
+
+            navigate(from, { replace: true })
             toast.success('login successfully')
 
         }
@@ -47,10 +48,12 @@ const Login = () => {
                         <button className='font-satisfy p-4 font-semibold flex items-center gap-4'>
                             <FaArrowLeftLong className='text-xl' />Back to Home</button>
                     </Link>
+
                     <div className='text-center font-satisfy mt-12'>
                         <h1 className='md:text-xl font-bold '>Dear user Welcome Back</h1>
                         <p className='my-4'>happy to see you</p>
                     </div>
+                   
                     <form onSubmit={handleSubmit} className=' rounded-xl px-12 py-6'>
 
                         <div className=''>
@@ -78,8 +81,10 @@ const Login = () => {
                         </div>
                         <button type='submit ' className='btn my-6 btn-outline text-white bg-black w-full'>Login</button>
                     </form>
-                    <p className='text-center font-satisfy my-6'>Don&apos;t have an account?<Link to="/login" className='text-blue-500'>Sign up</Link></p>
+                    <p className='text-center font-satisfy my-6'>Don&apos;t have an account?<Link to="/register" className='text-blue-500'>Sign up</Link></p>
+                    <SocialLogin></SocialLogin>
                 </div>
+                
             </div>
 
         </div>

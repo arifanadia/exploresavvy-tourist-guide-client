@@ -9,6 +9,7 @@ import AllPakages from "../Pages/AllPakages/AllPakages";
 import Community from "../Pages/Community/Community";
 import PackagesDetails from "../Pages/PackagesDetails/PackagesDetails";
 import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
+import MyBookings from "../DashboardPages/MyBookings/MyBookings";
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,9 @@ const router = createBrowserRouter([
         element : <Dashboard></Dashboard>,
         children: [
             {
+                path:'bookings',
+                element: <MyBookings></MyBookings>
+
 
             }
         ]

@@ -6,6 +6,7 @@ import useAuth from '../../Hooks/useAuth';
 import { useFormik } from 'formik';
 import { signUpSchema } from '../../Schemas';
 import toast from 'react-hot-toast';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const initialValues = {
@@ -104,6 +105,7 @@ const Register = () => {
                         <button type='submit ' className='btn my-4 btn-outline text-white bg-black w-full'>Sign Up</button>
                     </form>
                     <p className='text-center font-satisfy my-6'>Already have an account?<Link to="/login" className='text-blue-500'>Login</Link></p>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
 

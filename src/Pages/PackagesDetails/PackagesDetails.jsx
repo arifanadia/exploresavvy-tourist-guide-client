@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth"
 import DatePicker from "react-datepicker";
-import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 
@@ -45,6 +44,7 @@ const PackagesDetails = () => {
             const tourGuideName = form.tourGuide.value;
             const packageTitle = packageDetails.tripTitle;
             const packageId = packageDetails._id
+            const status = 'In review'
 
             const bookingData = {
                 name,
@@ -54,13 +54,27 @@ const PackagesDetails = () => {
                 tourDate: new Date(tourDate).toLocaleDateString,
                 tourGuideName,
                 packageTitle,
-                packageId
+                packageId,
+                status
+                
 
             }
 
             const res = await axiosSecure.post('/bookings', bookingData)
             if (res.data.insertedId) {
-                toast.success('package booked successfully')
+                Swal.fire({
+                    title: " Your booking has been successfully initiated.",
+                    text: "Please check your booking",
+                    icon: "success",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Go to my booking"
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/dashboard/bookings', { state: { from: location } })
+                    }
+                  });
             }
         } else {
 
