@@ -22,47 +22,48 @@ const MeetTourGuide = () => {
         fetchTourData()
 
     }, [axiosSecure])
-    console.log(data);
+
     return (
 
-        <Link to={`/tour-guide-details/${data._id}`}>
-            <div>
+
+        <div>
 
 
-                <Swiper
-                    breakpoints={{
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        },
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 30,
-                        },
-                    }}
-                    slidesPerView={4}
-                    spaceBetween={30}
-                    grabCursor={true}
-                    pagination={{
-                        clickable: true,
-                    }}
+            <Swiper
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }}
+                slidesPerView={4}
+                spaceBetween={30}
+                grabCursor={true}
+                pagination={{
+                    clickable: true,
+                }}
 
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper "
-                >
+                modules={[Pagination, Navigation]}
+                className="mySwiper "
+            >
 
 
-                    {
-                        data.map(guide =>
-                            <SwiperSlide key={guide.id} >
+                {
+                    data.map(guide =>
+                        <SwiperSlide key={guide._id} >
+                            <Link to={`/tour-guide-details/${guide._id}`}>
                                 <div className="bg-gray-100 rounded-xl relative w-72 h-80 mt-12">
                                     <div>
                                         <img className=" w-full h-[200px] rounded-t-xl" src={guide.photo} alt="tour guide image" />
@@ -80,17 +81,18 @@ const MeetTourGuide = () => {
 
                                     </div>
                                 </div>
+                            </Link>
 
 
-                            </SwiperSlide >
+                        </SwiperSlide >
 
-                        )
+                    )
 
-                    }
-                </Swiper >
+                }
+            </Swiper >
 
-            </div>
-        </Link>
+        </div>
+
 
     );
 };

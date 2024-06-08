@@ -5,12 +5,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import icon1 from '../../assets/icons/sign.png'
-import icon2 from '../../assets/icons/landscape.png'
-import icon3 from '../../assets/icons/location.png'
-import icon4 from '../../assets/icons/restaurant.png'
-import icon5 from '../../assets/icons/sunbathing.png'
-import icon6 from '../../assets/icons/historic-site.png'
+import icon1 from '../../assets/icons/landscape (1).png'
+import icon2 from '../../assets/icons/duck.png'
+import icon3 from '../../assets/icons/vase.png'
+import icon4 from '../../assets/icons/fish.png'
+import icon5 from '../../assets/icons/sunbed.png'
+import icon6 from '../../assets/icons/skyscraper-building.png'
 const TourType = () => {
 
     return (

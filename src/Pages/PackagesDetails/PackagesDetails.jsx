@@ -35,7 +35,7 @@ const PackagesDetails = () => {
     const handleBookNow = async (e) => {
         e.preventDefault();
         if (user && user.email) {
-          
+
             const form = e.target;
             const name = form.name.value;
             const email = form.email.value;
@@ -96,7 +96,7 @@ const PackagesDetails = () => {
                                 <span className="text-xl font-semibold font-maven "> tk.{packageDetails.price}</span>/per person
                             </h4>
                             <p className="flex gap-3 items-center"><FaStar className="text-orange-400"></FaStar>4.0</p>
-                           
+
                         </div>
                         <div className="divider my-4"></div>
                         <div>
@@ -147,7 +147,7 @@ const PackagesDetails = () => {
                                 </div>
                                 <select className="select select-bordered w-full mt-4" name="tourGuide">
                                     <option disabled selected> select your Tour Guide </option>
-                                    { user && user.email ?
+                                    {user && user.email ?
                                         guideData.map(guide =>
                                             <option key={guide._id} >{guide.name}</option>
                                         )
@@ -165,21 +165,23 @@ const PackagesDetails = () => {
                 <div>
                     <h1 className="text-xl md:text-2xl">List of Tour Guide</h1>
                     <div className=" border  border-gray-100 rounded-lg p-6 mt-6 shadow-xl ">
-                        <Link to={`/tour-guide-details/${guideData._id}`}>
-                            <div className="grid grid-cols-2 md:grid-cols-1 gap-8">
-                                {
-                                    guideData.map(guide =>
-                                        <div key={guide._id} className="flex border border-gray-200 p-6 items-center gap-4">
+
+                        <div className="grid grid-cols-2 md:grid-cols-1 gap-8">
+                            {
+                                guideData.map(guide =>
+                                    <Link key={guide._id} to={`/tour-guide-details/${guide._id}`}>
+                                        <div className="flex border border-gray-200 p-6 items-center gap-4">
                                             <img className="w-24 h-24 rounded-full" src={guide.photo} alt="" />
                                             <div>
                                                 <h3 className=""> {guide.name}</h3>
-                                                <p className="flex gap-3 items-center my-3"><FaStar className="text-orange-400"></FaStar>4.0</p>
+                                                <p className="flex gap-3 items-center my-3"><FaStar className="text-orange-400"></FaStar>{guide.rating}</p>
                                             </div>
                                         </div>
-                                    )
-                                }
-                            </div>
-                        </Link>
+                                    </Link>
+                                )
+                            }
+                        </div>
+
                     </div>
 
                 </div>
@@ -188,7 +190,7 @@ const PackagesDetails = () => {
 
 
 
-        </div>
+        </div >
     );
 };
 

@@ -8,6 +8,7 @@ import Dashboard from "../layout/Dashboard";
 import AllPakages from "../Pages/AllPakages/AllPakages";
 import Community from "../Pages/Community/Community";
 import PackagesDetails from "../Pages/PackagesDetails/PackagesDetails";
+import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tour-guide-details/:id',
-                element: <PackagesDetails></PackagesDetails>,
+                element:<TourGuideDetails></TourGuideDetails>,
                 loader : ({params}) => fetch(`http://localhost:5000/tour-guide-details/${params.id}`)
             },
             {
