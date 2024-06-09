@@ -12,8 +12,8 @@ const AdminMenu = () => {
             <ul className="menu text-center ">
                 <li className="ml-10"><NavLink to="/dashboard"><CgProfile />My Dashboard</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/my-profile"><CgProfile />My Profile</NavLink></li>
-                <li className="ml-10"><NavLink to="/dashboard/bookings"><IoIosAddCircle />Add Packages </NavLink></li>
-                <li className="ml-10"><NavLink to="/dashboard/bookings"><FaUserShield />Manage Users </NavLink></li>
+                <li className="ml-10"><NavLink to="/dashboard/add-packages"><IoIosAddCircle />Add Packages </NavLink></li>
+                <li className="ml-10"><NavLink to="/dashboard/manage-users"><FaUserShield />Manage Users </NavLink></li>
                 <div className="border-t border-t-yellow my-4 w-56 mx-auto"></div>
                 <li className="ml-10"><NavLink to="/"><FaHome />Home</NavLink></li>
                 <li className="ml-10"><NavLink to="/all-packages"><FaList />All packages</NavLink></li>

@@ -9,7 +9,10 @@ import AllPakages from "../Pages/AllPakages/AllPakages";
 import Community from "../Pages/Community/Community";
 import PackagesDetails from "../Pages/PackagesDetails/PackagesDetails";
 import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
-import MyBookings from "../DashboardPages/MyBookings/MyBookings";
+import MyBookings from "../DashboardPages/TouristItem/MyBookings/MyBookings";
+import ManageUsers from "../DashboardPages/AdminItem/ManageUsers/ManageUsers";
+import AddPackage from "../DashboardPages/AdminItem/Addpackage/AddPackage";
+
 
 
 const router = createBrowserRouter([
@@ -29,12 +32,12 @@ const router = createBrowserRouter([
             {
                 path: '/packages-details/:id',
                 element: <PackagesDetails></PackagesDetails>,
-                loader : ({params}) => fetch(`http://localhost:5000/packages-details/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/packages-details/${params.id}`)
             },
             {
                 path: '/tour-guide-details/:id',
-                element:<TourGuideDetails></TourGuideDetails>,
-                loader : ({params}) => fetch(`http://localhost:5000/tour-guide-details/${params.id}`)
+                element: <TourGuideDetails></TourGuideDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tour-guide-details/${params.id}`)
             },
             {
                 path: '/community',
@@ -52,15 +55,21 @@ const router = createBrowserRouter([
         element: <Register></Register>
     },
     {
-        path : 'dashboard',
-        element : <Dashboard></Dashboard>,
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
         children: [
             {
-                path:'bookings',
+                path: 'bookings',
                 element: <MyBookings></MyBookings>
-
-
-            }
+            },
+            {
+                path: 'manage-users',
+                element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'add-packages',
+                element: <AddPackage></AddPackage>
+            },
         ]
     }
 ]);

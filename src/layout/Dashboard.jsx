@@ -24,7 +24,7 @@ const Dashboard = () => {
         await logOut()
         navigate('/')
     }
-
+    if (isLoading) return <span className="loading loading-bars loading-lg"></span>
 
     return (
         <div className="flex">
@@ -46,7 +46,7 @@ const Dashboard = () => {
                     {role === 'tourist' && <TouristMenu />}
                     {role === 'tour guide' && <TourGuideMenu />}
                     {role === 'admin' && <AdminMenu />}
-                    
+
 
                 </nav>
 
@@ -60,7 +60,6 @@ const Dashboard = () => {
             </div>
             {/* pages or Outlet */}
             <div className="flex-1 p-8">
-
                 <Outlet></Outlet>
 
             </div>

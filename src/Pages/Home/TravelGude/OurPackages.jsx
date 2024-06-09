@@ -17,7 +17,7 @@ const OurPackages = () => {
                             <figure><img className="rounded-xl h-[300px] w-[400px]" src={item.mainImage} alt="Shoes" /></figure>
                             <button className="absolute bg-white px-2 py-1 rounded-lg right-4 top-2"><FaRegHeart className="text-xl" /></button>
                             <div className="card-body">
-                                <h2 className="font-satisfy text-3xl text-black font-semibold">{item.tripTitle}</h2>
+                                <h2 className="font-satisfy text-2xl text-black font-semibold">{item.tripTitle}</h2>
                                 <h2 className="card-title">{item.tourType}</h2>
                                 <div className="flex justify-between items-center">
                                     <p>BDT {item.price}/Person</p>
