@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {  FaList } from "react-icons/fa6";
+import { FaList } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
@@ -8,6 +8,7 @@ import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import TouristModal from "./TouristModal";
 import { HiCalendar } from "react-icons/hi2";
+import useRole from "../Hooks/useRole";
 
 const TourGuideMenu = () => {
     const { user } = useAuth();
@@ -15,6 +16,7 @@ const TourGuideMenu = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const role = useRole();
 
 
     const modalHandle = async () => {
@@ -47,22 +49,34 @@ const TourGuideMenu = () => {
     return (
         <div>
             <div className="w-full">
-                    <button onClick={handleOpen} className="btn w-3/4 flex justify-center mx-auto btn-outline text-white border-yellow hover:bg-yellow">Become a Tour Guide</button>
-                    <TouristModal handleClose={handleClose} modalHandle={modalHandle} open={open}></TouristModal>
+                {
+                    role === 'tour guide' ? (
+                        <div>
+                            <button
+                                onClick={handleOpen}
+                                className="btn w-3/4 flex justify-center mx-auto btn-outline text-white border-yellow hover:bg-yellow"
+                            >
+                                Become an Admin
+                            </button>
+                            <TouristModal handleClose={handleClose} modalHandle={modalHandle} open={open} />
+                        </div>
+                    ) : role === 'admin' ? (
+                        <h3 className="text-white">Admin</h3>
+                    ) : null
+                }
+            </div>
+            <ul className="menu text-center ">
+                <li className="ml-10"><NavLink to="/dashboard"><CgProfile />My Dashboard</NavLink></li>
+                <li className="ml-10"><NavLink to="/dashboard/my-profile"><CgProfile />My Profile</NavLink></li>
+                <li className="ml-10"><NavLink to="/dashboard/my-assigned-tour"><HiCalendar />My Assigned Tour </NavLink></li>
+                <div className="border-t border-t-yellow my-4 w-56 mx-auto"></div>
+                <li className="ml-10"><NavLink to="/"><FaHome />Home</NavLink></li>
+                <li className="ml-10"><NavLink to="/all-packages"><FaList />All packages</NavLink></li>
+                <li className="ml-10"><NavLink to="/community"><FaList />Community</NavLink></li>
+                <li className="ml-10"><NavLink to="/community"><FaList />Blog</NavLink></li>
 
-                </div>
-                <ul className="menu text-center ">
-                    <li className="ml-10"><NavLink to="/dashboard"><CgProfile />My Dashboard</NavLink></li>
-                    <li className="ml-10"><NavLink to="/dashboard/my-profile"><CgProfile />My Profile</NavLink></li>
-                    <li className="ml-10"><NavLink to="/dashboard/bookings"><HiCalendar />My Assigned Tour </NavLink></li>
-                    <div className="border-t border-t-yellow my-4 w-56 mx-auto"></div>
-                    <li className="ml-10"><NavLink to="/"><FaHome />Home</NavLink></li>
-                    <li className="ml-10"><NavLink to="/all-packages"><FaList />All packages</NavLink></li>
-                    <li className="ml-10"><NavLink to="/community"><FaList />Community</NavLink></li>
-                    <li className="ml-10"><NavLink to="/community"><FaList />Blog</NavLink></li>
-                     
 
-                </ul>
+            </ul>
 
         </div>
     );

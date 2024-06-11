@@ -1,6 +1,10 @@
 import { Modal, Box, Typography, Button } from '@mui/material';
 
+
 const TouristModal = ({ handleClose, open, modalHandle }) => {
+
+  
+    
     return (
         <Modal open={open} onClose={handleClose}>
             <Box

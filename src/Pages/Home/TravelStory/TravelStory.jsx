@@ -1,6 +1,8 @@
 import { MdExplore } from "react-icons/md";
 import bg from '../../../assets/home/story.jpeg'
 import TravelStoryCard from "./TravelStoryCard";
+import { FaCircleArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 const TravelStory = () => {
@@ -15,11 +17,18 @@ const TravelStory = () => {
 
             </div>
             <div className='rounded-xl  mt-12 bg-gray-100 h-[500px] bg-fixed bg-no-repeat bg-cover bg-center py-12'
-                style={{ backgroundImage: `linear-gradient(
-                    #0f0c29ED,#302b6336),url(${bg})` }}>
-                        <TravelStoryCard></TravelStoryCard>
-                    
+                style={{
+                    backgroundImage: `linear-gradient(
+                    #0f0c29ED,#302b6336),url(${bg})`
+                }}>
+                <TravelStoryCard></TravelStoryCard>
 
+
+            </div>
+            <div className="mt-12 w-1/3 mx-auto">
+                <Link to='/all-stories'>
+                    <button className="text-black btn-outline btn justify-center w-full mx-auto font-semibold flex items-center gap-4  text-xl ">Read more stories <FaCircleArrowRight /></button>
+                </Link>
             </div>
 
 

@@ -1,9 +1,9 @@
 [
     {
-        "id": 1,
         "title": "Exploring the Beauty of Sundarbans",
         "tourist_name": "Liam Parker",
-        "image":"https://i.ibb.co/1LpNNQR/sundarban.jpg",
+        "image": "https://i.ibb.co/1LpNNQR/sundarban.jpg",
+        "tourist_photo": "https://i.ibb.co/gDG5h44/istockphoto-854415482-1024x1024.jpg",
         "destination": "Sundarbans, Bangladesh",
         "duration_days": 7,
         "start_date": "December 1, 2023",
@@ -25,10 +25,10 @@
         }
     },
     {
-        "id": 2,
         "title": "The Ancient Ruins of Bandarban",
         "tourist_name": "Sophia Lee",
-        "image":"https://i.ibb.co/QXDn7ZP/bandarban.jpg",      
+        "image": "https://i.ibb.co/QXDn7ZP/bandarban.jpg",
+        "tourist_photo": "https://i.ibb.co/gDG5h44/istockphoto-854415482-1024x1024.jpg",
         "destination": "Bandarban, Bangladesh",
         "duration_days": 3,
         "start_date": "January 15, 2024",
@@ -50,10 +50,10 @@
         }
     },
     {
-        "id": 3,
         "title": "The Serenity of Srimangal",
         "tourist_name": "Michael Brown",
-        "image":"https://i.ibb.co/MNVk6wm/ChaBAgan.jpg",
+        "image": "https://i.ibb.co/MNVk6wm/ChaBAgan.jpg",
+        "tourist_photo": "https://i.ibb.co/gDG5h44/istockphoto-854415482-1024x1024.jpg",
         "destination": "Srimangal, Bangladesh",
         "duration_days": 5,
         "start_date": "March 10, 2024",
@@ -75,10 +75,10 @@
         }
     },
     {
-        "id": 4,
         "title": "Discovering the Historical Beauty of Kaptai Lake",
         "tourist_name": "Emma Wilson",
         "image": "https://i.ibb.co/Y8xFgT3/kaptailake.jpg",
+        "tourist_photo": "https://i.ibb.co/gDG5h44/istockphoto-854415482-1024x1024.jpg",
         "destination": "Kaptai Lake, Bangladesh",
         "duration_days": 4,
         "start_date": "February 20, 2024",
@@ -100,10 +100,10 @@
         }
     },
     {
-        "id": 5,
         "title": "Enjoying the Longest Beach in the World - Cox's Bazar",
         "tourist_name": "John Smith",
         "image": "https://i.ibb.co/f431L6H/cox5.webp ",
+        "tourist_photo": "https://i.ibb.co/gDG5h44/istockphoto-854415482-1024x1024.jpg",
         "destination": "Cox's Bazar, Bangladesh",
         "duration_days": 5,
         "start_date": "March 15, 2024",

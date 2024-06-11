@@ -3,9 +3,11 @@ import useAuth from "../Hooks/useAuth";
 import { Outlet, useNavigate } from "react-router-dom";
 import { HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 import useRole from "../Hooks/useRole";
+import AdminMenu from '../Component/AdminMenu'
 import TouristMenu from "../Component/TouristMenu";
 import TourGuideMenu from "../Component/TourGuideMenu";
-import AdminMenu from "../Component/AdminMenu";
+
+
 
 
 
@@ -17,6 +19,7 @@ const Dashboard = () => {
     const { user, logOut } = useAuth();
     const navigate = useNavigate()
     const [role, isLoading] = useRole();
+
     console.log(role);
 
 
@@ -42,13 +45,21 @@ const Dashboard = () => {
                     <p className="my-2">{user?.email}</p>
                 </div>
                 <div className="border-t border-t-yellow my-4 w-56 mx-auto"></div>
-                <nav>
-                    {role === 'tourist' && <TouristMenu />}
-                    {role === 'tour guide' && <TourGuideMenu />}
-                    {role === 'admin' && <AdminMenu />}
+
+                {
+                    role === 'admin' && <AdminMenu />
+                }
+                {
+                    role === 'tour guide' && <TourGuideMenu />
+                }
+                {
+                    role === 'tourist' && <TouristMenu />
+                }
 
 
-                </nav>
+
+
+
 
                 {/* logout */}
                 <div>

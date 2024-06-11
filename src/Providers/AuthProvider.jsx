@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
 export const AuthContext = createContext(null);
@@ -18,7 +18,8 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const axiosSecure = useAxiosSecure()
+
+    const axiosPublic = useAxiosPublic();
 
 
 
@@ -52,22 +53,33 @@ const AuthProvider = ({ children }) => {
     //     )
     // }
 
-    const saveUser = async user => {
-        const currentUser = {
-            email: user?.email,
-            role: 'tourist',
-            status: 'Verified'
-        }
-        const { data } = axiosSecure.put(`/users`, currentUser)
-        console.log(data);
-        return data
-    }
+    // const saveUser = async user => {
+    //     const currentUser = {
+    //         name: user?.displayName,
+    //         email: user?.email,
+    //         role: 'tourist',
+    //         status: 'Verified'
+    //     }
+    //     const { data } = await axiosPublic.put(`/users`, currentUser)
+    //     console.log(data);
+    //     return data
+    // }
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser)
-            if(currentUser){
-                saveUser(currentUser)
+            if (currentUser) {
+                const userInfo = { email: currentUser.email }
+                await axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token)
+                        }
+                    })
+                // await saveUser(currentUser)
+            }
+            else {
+                localStorage.removeItem('access-token')
             }
             setLoading(false)
         })
@@ -75,7 +87,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             return unSubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 
 
 

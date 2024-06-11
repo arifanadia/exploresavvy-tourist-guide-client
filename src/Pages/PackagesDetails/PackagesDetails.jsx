@@ -39,23 +39,27 @@ const PackagesDetails = () => {
             const name = form.name.value;
             const email = form.email.value;
             const photo = form.photo.value;
-            const price = form.price.value;
+            const price = parseFloat(packageDetails.price)
             const tourDate = startDate
             const tourGuideName = form.tourGuide.value;
             const packageTitle = packageDetails.tripTitle;
             const packageId = packageDetails._id
-            const status = 'In review'
+            const packageImg = packageDetails.mainImage
+           
+            
+            
 
             const bookingData = {
                 name,
                 email,
                 photo,
                 price,
-                tourDate: new Date(tourDate).toLocaleDateString,
                 tourGuideName,
                 packageTitle,
                 packageId,
-                status
+                status : 'In review',
+                tourDate: new Date(tourDate).toLocaleDateString(),
+                packageImg
                 
 
             }

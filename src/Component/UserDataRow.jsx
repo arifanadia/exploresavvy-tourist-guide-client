@@ -1,70 +1,61 @@
-import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
-import { useState } from "react";
+import useAuth from "../Hooks/useAuth";
 
 const UserDataRow = ({ user, refetch }) => {
-
+    const { user: loggedInUser } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const [isUpdating,setISUpdating] = useState(false)
+    
 
-    const { mutateAsync } = useMutation({
-        mutationFn: async (updateUser) => {
-            const { data } = await axiosSecure.patch(`/users/update/${user?.email}`, updateUser)
-            return data
-
-        },
-        onSuccess: data => {
-            refetch()
-            console.log(data);
-            setISUpdating(false)
-            toast.success('user role update successfully')
+    const handleRoleChange = async (role) => {
+        if (loggedInUser?.email === user?.email) {
+            return toast.error("Action not allowed on yourself");
         }
-    })
-
-    const handleRole = async (id, role) => {
-        setISUpdating(true)
-        const updateUser = {
-            id,
-            role,
-            status: 'Approved'
+        if (user?.status === 'Verified') {
+            return toast.success("User is already verified");
         }
+
+        const updateUser = { role, status: 'Approved' };
+
         try {
-            await mutateAsync(updateUser)
+            const res = await axiosSecure.patch(`/users/role/${user?._id}`, updateUser);
+            if (res.data.modifiedCount > 0) {
+                toast.success("User updated successfully");
+                refetch(); // Call refetch to get the updated data
+            } else {
+                toast.error("Failed to update user");
+            }
+        } catch (err) {
+            console.error("Error updating user:", err.message);
+            toast.error("Failed to update user");
         }
-        catch (err) {
-            console.log(err.message);
-        }
-    }
+    };
+    const isApproved = user.status === 'Approved';
+
     return (
-        <>
-            {/* row 1 */}
-            <tr className="text-gray-900 ">
-
-                <td>
-                    {user.email}
-                </td>
-                <td>
-                    {user.role}
-                </td>
-                <td className={`py-2 px-4 border-b ${user.status === 'Verified' ? 'text-green-600' : user.status === 'Requested' ? 'text-red-600' : user.status === 'Approved' ? 'text-blue-600' : 'text-gray-600'}`}>
-                    {user.status}
-                </td>
-
-                <td>
-                    <button
-                        onClick={() => handleRole(user._id, 'admin')}
-                        disabled={isUpdating || user.role === 'admin'}
-                        className=" bg-black bg-opacity-80 p-2 text-gray-50 rounded-lg ">Make Admin</button>
-                    <button
-                        onClick={() => handleRole(user._id, 'tour guide')} 
-                        disabled={isUpdating || user.role === 'tour guide'}
-                        className=" ml-3 bg-yellow  bg-opacity-70 text-gray-900 p-2 font-semibold rounded-lg disabled"> Make Tour-Guide</button>
-                </td>
-            </tr>
-
-
-        </>
+        <tr className="text-gray-900">
+            <td>{user.email}</td>
+            <td>{user.role}</td>
+            <td className={`py-2 px-4 border-b ${user.status === 'Verified' ? 'text-green-600' : user.status === 'Requested' ? 'text-red-600' : user.status === 'Approved' ? 'text-blue-600' : 'text-gray-600'}`}>
+                {user.status}
+            </td>
+            <td>
+                <button
+                    onClick={() => handleRoleChange('admin')}
+                    className={`${isApproved ? 'opacity-35 cursor-not-allowed' : ''} bg-black bg-opacity-80 p-2 text-gray-50 rounded-lg`}
+                    disabled={isApproved}
+                >
+                    Make Admin
+                </button>
+                <button
+                    onClick={() => handleRoleChange('tour guide')}
+                    className={`${isApproved ? 'opacity-35 text-gray-500 cursor-not-allowed' : ''} ml-3 bg-yellow bg-opacity-70 text-gray-900 p-2 font-semibold rounded-lg`}
+                    disabled={isApproved}
+                >
+                    Make Tour Guide
+                </button>
+            </td>
+        </tr>
     );
 };
 

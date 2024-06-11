@@ -25,7 +25,7 @@ const TourType = () => {
                 <Swiper
                     slidesPerView={4}
                     spaceBetween={30}
-                    centeredSlides={true}
+                    grabCursor={true}
                     pagination={{
                         clickable: true,
                     }}

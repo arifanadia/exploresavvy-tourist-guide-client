@@ -12,6 +12,16 @@ import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
 import MyBookings from "../DashboardPages/TouristItem/MyBookings/MyBookings";
 import ManageUsers from "../DashboardPages/AdminItem/ManageUsers/ManageUsers";
 import AddPackage from "../DashboardPages/AdminItem/Addpackage/AddPackage";
+import AdminDashboard from "../DashboardPages/AdminItem/AdminDashboard/AdminDashboard";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import MyWishList from "../DashboardPages/TouristItem/MyWishList/MyWishList";
+import MyProfile from "../Component/Myprofile/MyProfile";
+import AllStories from "../Pages/AllStories/AllStories";
+import Blogs from "../Pages/Blogs/Blogs";
+import StoryDetails from "../Pages/StoryDetails/StoryDetails";
+import BlogDetails from "../Pages/Blogs/BlogDetails";
+import MyAssignedTour from "../DashboardPages/TourGuideItem/MyAssignedTour/MyAssignedTour";
 
 
 
@@ -43,6 +53,25 @@ const router = createBrowserRouter([
                 path: '/community',
                 element: <Community></Community>
             },
+            {
+                path: '/all-stories',
+                element: <AllStories></AllStories>
+            },
+            {
+                path: '/tourist-stories-details/:id',
+                element: <StoryDetails></StoryDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tourist-stories-details/${params.id}`)
+            },
+
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
+            },
+            {
+                path: '/blog-details/:id',
+                element: <BlogDetails/>,
+                loader: ({ params }) => fetch(`http://localhost:5000/blog-details/${params.id}`)
+            },
         ]
 
     },
@@ -56,8 +85,12 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            {
+                path: 'admin-dashboard',
+                element: <PrivateRoute><AdminRoute><AdminDashboard></AdminDashboard></AdminRoute></PrivateRoute>
+            },
             {
                 path: 'bookings',
                 element: <MyBookings></MyBookings>
@@ -68,8 +101,22 @@ const router = createBrowserRouter([
             },
             {
                 path: 'add-packages',
-                element: <AddPackage></AddPackage>
+                element: <AdminRoute><AddPackage></AddPackage></AdminRoute>
             },
+            {
+                path: 'my-profile',
+                element: <MyProfile></MyProfile>
+            },
+            {
+                path: 'my-wishlist',
+                element: <MyWishList></MyWishList>
+            },
+            {
+                path: 'my-assigned-tour',
+                element: <MyAssignedTour></MyAssignedTour>
+            },
+            
+
         ]
     }
 ]);
