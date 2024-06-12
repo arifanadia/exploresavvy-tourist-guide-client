@@ -42,12 +42,12 @@ const router = createBrowserRouter([
             {
                 path: '/packages-details/:id',
                 element: <PackagesDetails></PackagesDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/packages-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://exploresavvy-tourist-guide-server.vercel.app/packages-details/${params.id}`)
             },
             {
                 path: '/tour-guide-details/:id',
                 element: <TourGuideDetails></TourGuideDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tour-guide-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://exploresavvy-tourist-guide-server.vercel.app/tour-guide-details/${params.id}`)
             },
             {
                 path: '/community',
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
             {
                 path: '/tourist-stories-details/:id',
                 element: <StoryDetails></StoryDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tourist-stories-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://exploresavvy-tourist-guide-server.vercel.app/tourist-stories-details/${params.id}`)
             },
 
             {
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
             {
                 path: '/blog-details/:id',
                 element: <BlogDetails/>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blog-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://exploresavvy-tourist-guide-server.vercel.app/blog-details/${params.id}`)
             },
         ]
 
