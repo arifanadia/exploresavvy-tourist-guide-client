@@ -5,7 +5,7 @@ import AssignedData from "./AssignedData";
 
 
 const MyAssignedTour = () => {
-    const [bookings,refetch] = useBooking()
+    const [bookings, refetch] = useBooking()
 
     return (
         <section>
@@ -16,7 +16,7 @@ const MyAssignedTour = () => {
                         {/* head */}
                         <thead>
                             <tr className="text-lg text-gray-800 uppercase">
-
+                                <th></th>
                                 <th>Package Name</th>
                                 <th>Tourist Name</th>
                                 <th>Price</th>

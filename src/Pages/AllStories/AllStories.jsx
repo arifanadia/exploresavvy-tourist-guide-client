@@ -67,7 +67,7 @@ const AllStories = () => {
                                             </div>
 
                                             <h4 className="font-satisfy text-2xl m">{stories.title}</h4>
-                                            <p className="my-4">{stories.description.history.substring(0, 80)}....</p>
+                                            <p className="my-4">{stories.description.history}....</p>
                                         </div>
 
                                     </div>

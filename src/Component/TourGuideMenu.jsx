@@ -71,7 +71,7 @@ const TourGuideMenu = () => {
                 <li className="ml-10"><NavLink to="/dashboard/my-assigned-tour"><HiCalendar />My Assigned Tour </NavLink></li>
                 <div className="border-t border-t-yellow my-4 w-56 mx-auto"></div>
                 <li className="ml-10"><NavLink to="/"><FaHome />Home</NavLink></li>
-                <li className="ml-10"><NavLink to="/all-packages"><FaList />All packages</NavLink></li>
+                <li className="ml-10"><NavLink to="/all-packages/adventure"><FaList />All packages</NavLink></li>
                 <li className="ml-10"><NavLink to="/community"><FaList />Community</NavLink></li>
                 <li className="ml-10"><NavLink to="/community"><FaList />Blog</NavLink></li>
 

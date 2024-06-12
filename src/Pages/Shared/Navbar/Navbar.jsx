@@ -16,7 +16,7 @@ const Navbar = () => {
     const navOptions =
         <>
             <li className="active:text-yellow"><Link to="/">Home</Link></li>
-            <li className="active:text-yellow"><Link to="/all-packages">All packages</Link></li>
+            <li className="active:text-yellow"><Link to="/all-packages/adventure">All packages</Link></li>
             <li><Link to="/community">Community</Link></li>
             <li><Link to="/blogs">Blogs</Link></li>
             <li><Link to="/about-us">About Us</Link></li>

@@ -3,12 +3,12 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
-const BookingData = ({ item,refetch }) => {
+const BookingData = ({ item, refetch }) => {
     const axiosSecure = useAxiosSecure()
 
 
     const handleReject = (id) => {
-        
+
 
         Swal.fire({
             title: "Are you sure?",
@@ -35,7 +35,7 @@ const BookingData = ({ item,refetch }) => {
 
             }
         });
-    
+
 
     }
 
@@ -45,7 +45,7 @@ const BookingData = ({ item,refetch }) => {
             <tr className="text-gray-900 ">
                 <td>
                     <button
-                        onClick={() =>handleReject(item._id)}
+                        onClick={() => handleReject(item._id)}
                         className=" text-red-600 text-xl "><MdOutlineCancel /></button>
 
                 </td>
@@ -71,7 +71,14 @@ const BookingData = ({ item,refetch }) => {
                 </td>
 
                 <td>
-                    <button className="btn bg-gray-900 text-white">Pay</button>
+                    {
+                        item.status === 'Accepted' ?
+                            <button className="btn bg-gray-900 text-white">Pay</button>
+                            :
+                            <button className="btn bg-gray-900 text-white" disabled>Pay</button>
+
+                    }
+
 
                 </td>
             </tr>

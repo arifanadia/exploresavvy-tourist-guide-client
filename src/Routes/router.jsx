@@ -36,7 +36,7 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/all-packages',
+                path: '/all-packages/:tourType',
                 element: <AllPakages></AllPakages>
             },
             {

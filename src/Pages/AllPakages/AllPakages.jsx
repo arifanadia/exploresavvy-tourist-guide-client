@@ -1,17 +1,36 @@
-import { Link } from "react-router-dom";
+
 import usePackages from "../../Hooks/usePackages";
-import { FaCircleArrowRight, FaRegHeart } from "react-icons/fa6";
 import PageHeader from "../../Component/PageHeader";
 import bg from '../../assets/All packages/all.jpg'
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
+import PacakgesByType from "./PacakgesByType";
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 
 const AllPakages = () => {
     const [packages] = usePackages();
-    const {user} = useAuth();
-    const axiosSecure = useAxiosSecure()
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
+    console.log(packages);
+    const types = ['Adventure', 'Wildlife', 'Cultural', 'Food', 'Relaxation', 'Historical']
+    const { tourType } = useParams();
+    console.log(tourType);
+    const initialIndex = types.indexOf(tourType)
+    const [tabIndex, setTabIndex] = useState(initialIndex);
+
+    const adventures = packages.filter(item => item.tourType === 'Adventure')
+    console.log(adventures);
+    const wildLife = packages.filter(item => item.tourType === 'Wildlife')
+    const cultural = packages.filter(item => item.tourType === 'Cultural')
+    const food = packages.filter(item => item.tourType === 'Food')
+    const relaxation = packages.filter(item => item.tourType === 'Relaxation')
+    const historical = packages.filter(item => item.tourType === 'Historical')
 
 
     const handleWishList = async (item) => {
@@ -23,7 +42,7 @@ const AllPakages = () => {
             location: item.location,
             price: parseFloat(item.price),
             tourType: item.tourType,
-            email : user?.email
+            email: user?.email
 
 
         }
@@ -36,27 +55,43 @@ const AllPakages = () => {
     }
     return (
         <div className="">
+            <Helmet>
+                <title> ExploreSavvy | Packages </title>
+            </Helmet>
             <PageHeader bg={bg} title={'Buy and explore nature'}></PageHeader>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 ">
-                {
-                    packages.map(item =>
-                        <div key={item._id} className="card max-w-3xl mx-auto bg-base-100 shadow-xl relative">
-                            <figure><img className="rounded-xl h-[300px] w-[400px]" src={item.mainImage} alt="Shoes" /></figure>
-                            <button onClick={() => handleWishList(item)} className="absolute bg-white px-2 py-1 rounded-lg right-4 top-2"><FaRegHeart className="text-xl" /></button>
-                            <div className="card-body">
-                                <h2 className="font-satisfy text-3xl text-black font-semibold">{item.tripTitle}</h2>
-                                <h2 className="card-title">{item.tourType}</h2>
-                                <div className="flex justify-between items-center">
-                                    <p>BDT {item.price}/Person</p>
-                                    <Link to={`/packages-details/${item._id}`}><button className="text-2xl"><FaCircleArrowRight /></button></Link>
+            <section className="max-w-7xl mx-auto my-12">
+                <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                    <TabList className={'uppercase text-center'}>
+                        <Tab>Adventure</Tab>
+                        <Tab>Wildlife</Tab>
+                        <Tab>Cultural</Tab>
+                        <Tab>Food</Tab>
+                        <Tab>Relaxation</Tab>
+                        <Tab>Historical</Tab>
 
-                                </div>
-                            </div>
+                    </TabList>
+                    <TabPanel>
+                        <PacakgesByType tripPack={adventures} handleWishList={handleWishList}></PacakgesByType>
+                    </TabPanel>
+                    <TabPanel>
+                        <PacakgesByType tripPack={wildLife}></PacakgesByType>
+                    </TabPanel>
+                    <TabPanel>
+                        <PacakgesByType tripPack={cultural}></PacakgesByType>
+                    </TabPanel>
+                    <TabPanel>
+                        <PacakgesByType tripPack={food}></PacakgesByType>
+                    </TabPanel>
+                    <TabPanel>
+                        <PacakgesByType tripPack={relaxation}></PacakgesByType>
+                    </TabPanel>
+                    <TabPanel>
+                        <PacakgesByType tripPack={historical}></PacakgesByType>
+                    </TabPanel>
 
-                        </div>
-                    )
-                }
-            </div>
+                </Tabs>
+            </section>
+
         </div>
     );
 };
