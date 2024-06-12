@@ -56,10 +56,7 @@ const TouristMenu = () => {
                             <TouristModal handleClose={handleClose} modalHandle={modalHandle} open={open}></TouristModal>
                         </div>
                         :
-                        <div>
-                            <button onClick={handleOpen} className="btn w-3/4 flex justify-center mx-auto btn-outline text-white border-yellow hover:bg-yellow">Become a Admin</button>
-                            <TouristModal handleClose={handleClose} modalHandle={modalHandle} open={open}></TouristModal>
-                        </div>
+                       ''
 
                 }
 

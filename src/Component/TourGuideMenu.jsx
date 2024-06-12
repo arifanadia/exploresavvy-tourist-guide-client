@@ -49,20 +49,13 @@ const TourGuideMenu = () => {
     return (
         <div>
             <div className="w-full">
-                {
-                    role === 'tour guide' ? (
-                        <div>
-                            <button
-                                onClick={handleOpen}
-                                className="btn w-3/4 flex justify-center mx-auto btn-outline text-white border-yellow hover:bg-yellow"
-                            >
-                                Become an Admin
-                            </button>
-                            <TouristModal handleClose={handleClose} modalHandle={modalHandle} open={open} />
-                        </div>
-                    ) : role === 'admin' ? (
-                        <h3 className="text-white">Admin</h3>
-                    ) : null
+             {role !== 'tour guide' ? 
+                    <div>
+                        <button onClick={handleOpen} className="btn w-3/4 flex justify-center mx-auto btn-outline text-white border-yellow hover:bg-yellow">
+                            Become an Admin
+                        </button>
+                        <TouristModal handleClose={handleClose} modalHandle={modalHandle} open={open} />
+                    </div> : ''
                 }
             </div>
             <ul className="menu text-center ">
