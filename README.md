@@ -1,4 +1,4 @@
-# Tourist Guide
+# exploresavvy-tourist guide
 
 Welcome to the Tourist Guide website, your ultimate resource for exploring the beauty of Bangladesh!
 
