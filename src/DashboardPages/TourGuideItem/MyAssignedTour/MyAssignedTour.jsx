@@ -5,7 +5,8 @@ import AssignedData from "./AssignedData";
 
 
 const MyAssignedTour = () => {
-    const [bookings, refetch] = useBooking()
+    const [bookings, refetch] = useBooking();
+    
 
     return (
         <section>
