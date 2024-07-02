@@ -77,7 +77,7 @@ To run this project locally, follow these steps:
     ```
 2. **Navigate to the project directory:**
     ```bash
-    cd dreamy-destiny-hotel
+    cd exploresavvy-tourist-guide-client
     ```
 3. **Install dependencies:**
     ```bash
@@ -87,6 +87,11 @@ To run this project locally, follow these steps:
     ```bash
     npm start
     ```
+5. **Server-side git-repo**
+    ```bash
+    git clone https://github.com/your-username/dreamy-destiny-hotel.git
+    ```
+  
 
 ## Contributing
 
