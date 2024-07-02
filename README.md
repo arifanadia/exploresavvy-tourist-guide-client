@@ -2,11 +2,6 @@
 
 Welcome to the Tourist Guide website, your ultimate resource for exploring the beauty of Bangladesh!
 
-## Admin Credentials
-
-- **Admin username:** jr.developer@arifa.com
-- **Admin password:** [********]
-
 ## Live Site
 
 Visit the live site:  https://exploresavvy-tourist-guide.web.app/
