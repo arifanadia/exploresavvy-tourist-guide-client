@@ -69,9 +69,32 @@ Visit the live site:  https://exploresavvy-tourist-guide.web.app/
 
 ## Getting Started
 
-To run this project locally:
+To run this project locally, follow these steps:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/tourist-guide.git
-   cd tourist-guide
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/dreamy-destiny-hotel.git
+    ```
+2. **Navigate to the project directory:**
+    ```bash
+    cd dreamy-destiny-hotel
+    ```
+3. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4. **Start the development server:**
+    ```bash
+    npm start
+    ```
+
+## Contributing
+
+We welcome contributions to enhance the Dreamy Destiny Hotel website. If you have suggestions or improvements, please create a pull request or open an issue.
+
+## Contact
+
+Email : contactarifanadia@gmail.com
+
+---
+
