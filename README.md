@@ -73,7 +73,7 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/dreamy-destiny-hotel.git
+    git clone https://github.com/arifanadia/exploresavvy-tourist-guide-client.git
     ```
 2. **Navigate to the project directory:**
     ```bash
@@ -89,13 +89,9 @@ To run this project locally, follow these steps:
     ```
 5. **Server-side git-repo**
     ```bash
-    git clone https://github.com/your-username/dreamy-destiny-hotel.git
+    git clone https://github.com/arifanadia/exploresavvy-tourist-guide-server.git
     ```
-  
 
-## Contributing
-
-We welcome contributions to enhance the Dreamy Destiny Hotel website. If you have suggestions or improvements, please create a pull request or open an issue.
 
 ## Contact
 
