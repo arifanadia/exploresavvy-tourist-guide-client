@@ -1,8 +1,111 @@
-# React + Vite
+# exploresavvy-tourist guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Welcome to the Tourist Guide website, your ultimate resource for exploring the beauty of Bangladesh!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Live Site
+
+
+Visit the live site: https://exploresavvy-tourist-guide.web.app/
+
+
+## Features
+
+
+- **Homepage**:
+  - Navbar with logo, website name, and user authentication (login/register)
+  - Dynamic user profile dropdown with links to Dashboard
+  - Tourism and Travel Guide Section with tabs for Overview, Our Packages, and Meet Our Tour Guides
+  - Tour Type Section linking to specific tour packages
+  - Tourist Story Section featuring clickable stories with share functionality
+
+
+- **Package Details Page**
+  - About The Tour, Tour plan, and list of tour guides
+  - Booking form with user information pre-filled and date picker for booking
+
+
+- **Tour Guide Profile Page**:
+  - Tour guide details, including reviews and rating system
+  - Ability for users to rate and comment on tour guides
+
+
+- **Authentication**:
+  - Login and registration forms with social login options
+  - Protected routes for users, tour guides, and admins
+
+
+- **User Dashboards**:
+  - **Tourist Dashboard**: My Profile, My Bookings, My Wishlist, Request to Admin
+  - **Tour Guide Dashboard**: My Profile, My Assigned Tours
+  - **Admin Dashboard**: My Profile, Add Package, Manage Users
+
+
+- **Notifications and Alerts**:
+  - SweetAlert/Toast notifications for CRUD operations and authentication events
+
+
+- **Advanced Features**:
+  - JWT authentication with local storage implementation
+  - Discount message for frequent users with animation effects
+
+
+## Technologies Used
+
+
+- **Frontend**:
+  - React.js with react-router-dom for routing
+  - React Tabs for tabbed content
+  - React Datepicker for date selection
+  - React Share for social media sharing
+
+
+- **Backend**:
+  - Node.js with Express.js for server-side logic
+  - MongoDB for database storage with Mongoose for ORM
+  - Firebase Authentication for user authentication
+  - JWT for secure authentication tokens
+  - Tanstack Query for efficient data fetching (GET methods)
+
+
+- **Additional Packages**:
+  - React Helmet 
+
+
+## Getting Started
+
+
+To run this project locally, follow these steps:
+
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/arifanadia/exploresavvy-tourist-guide-client.git
+    ```
+2. **Navigate to the project directory:**
+    cd exploresavvy-tourist-guide-client
+
+
+3. **Install dependencies:**
+    npm install
+4. **Start the development server:**
+    npm start
+5. **Server-side git-repo**
+    ```bash
+    git clone https://github.com/arifanadia/exploresavvy-tourist-guide-server.git
+    ```
+
+
+
+
+## Contact
+
+
+Email : contactarifanadia@gmail.com
+
+
+---
+
+
+
