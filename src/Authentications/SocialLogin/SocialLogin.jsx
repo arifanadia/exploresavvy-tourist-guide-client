@@ -36,7 +36,6 @@ const SocialLogin = () => {
             }
         } catch (err) {
             console.log('Error during sign-in:', err); // Log the error for debugging
-            toast.error('An error occurred during sign-in: ' + err.message); // Display error message to user
         }
 
     };
