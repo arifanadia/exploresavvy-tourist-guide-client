@@ -25,9 +25,9 @@ const TravelStory = () => {
 
 
             </div>
-            <div className="mt-12 w-1/3 mx-auto">
+            <div className="mt-12 w-1/2 md:w-1/3 mx-auto">
                 <Link to='/all-stories'>
-                    <button className="text-black btn-outline btn justify-center w-full mx-auto font-semibold flex items-center gap-4  text-xl ">Read more stories <FaCircleArrowRight /></button>
+                    <button className="text-black btn-outline btn justify-center w-full mx-auto font-semibold flex items-center gap-4 text-lg md:text-xl ">Read more stories <FaCircleArrowRight /></button>
                 </Link>
             </div>
 

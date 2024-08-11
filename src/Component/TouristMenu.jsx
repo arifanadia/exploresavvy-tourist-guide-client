@@ -61,14 +61,14 @@ const TouristMenu = () => {
                 }
 
             </div>
-            <ul className="menu text-center ">
+            <ul className="menu text-center text-gray-400 ">
                 <li className="ml-10"><NavLink to="/dashboard"><CgProfile />My Dashboard</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/my-profile"><CgProfile />My Profile</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/bookings"><HiCalendar />My Booking</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/my-wishlist"><FaHeart />My Wishlist</NavLink></li>
                 <div className="border-t border-t-yellow my-4 w-56 mx-auto"></div>
                 <li className="ml-10"><NavLink to="/"><FaHome />Home</NavLink></li>
-                <li className="ml-10"><NavLink to="/all-packages/adventure"><FaList />All packages</NavLink></li>
+                <li className="ml-10"><NavLink to="/all-packages/Adventure"><FaList />All packages</NavLink></li>
 
 
             </ul>

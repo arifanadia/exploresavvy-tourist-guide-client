@@ -39,7 +39,7 @@ const UserDataRow = ({ user, refetch }) => {
             <td className={`py-2 px-4 border-b ${user.status === 'Verified' ? 'text-green-600' : user.status === 'Requested' ? 'text-red-600' : user.status === 'Approved' ? 'text-blue-600' : 'text-gray-600'}`}>
                 {user.status}
             </td>
-            <td>
+            <td className="flex flex-col sm:flex-row gap-2">
                 <button
                     onClick={() => handleRoleChange('admin')}
                     className={`${isApproved ? 'opacity-35 cursor-not-allowed' : ''} bg-black bg-opacity-80 p-2 text-gray-50 rounded-lg`}

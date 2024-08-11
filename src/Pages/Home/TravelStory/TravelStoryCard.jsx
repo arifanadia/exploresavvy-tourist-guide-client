@@ -8,7 +8,7 @@ const TravelStoryCard = () => {
 
     const [touristStories] = useTouristStories()
     return (
-        <div>
+        <div className='px-4 md:px-8'>
             <Swiper
                 breakpoints={{
                     320: {

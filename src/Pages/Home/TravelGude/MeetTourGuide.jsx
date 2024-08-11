@@ -64,7 +64,7 @@ const MeetTourGuide = () => {
                     data.map(guide =>
                         <SwiperSlide key={guide._id} >
                             <Link to={`/tour-guide-details/${guide._id}`}>
-                                <div className="bg-gray-100 rounded-xl relative w-72 h-80 mt-12">
+                                <div className="bg-gray-100 rounded-xl relative w-72 h-80 mx-auto md:mx-0 mt-12">
                                     <div>
                                         <img className=" w-full h-[200px] rounded-t-xl" src={guide.photo} alt="tour guide image" />
                                     </div>

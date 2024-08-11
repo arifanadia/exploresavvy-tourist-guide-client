@@ -9,14 +9,14 @@ const Blogs = () => {
     return (
         <div>
             <PageHeader title={'Beautiful Travel Journeys'} bg={bg}></PageHeader>
-            <div className="md:flex gap-8 max-w-7xl mx-auto">
+            <div className="md:flex gap-8 max-w-7xl mx-auto mt-12">
 
                 <div>
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid md:grid-cols-2 gap-8 ">
                         {
                             blogs.map(blog =>
                                 <div key={blog._id} className="rounded-xl border border-gray-200 w-96 ">
-                                <img className="md:w-96 h-64" src={blog.image} alt="" />
+                                <img className="md:w-96 h-64 rounded-t-xl" src={blog.image} alt="" />
                                 <div className="p-6">
                                     <div className="flex items-end my-2">
                                         <p>{blog.date}</p>

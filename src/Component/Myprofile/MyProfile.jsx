@@ -18,7 +18,7 @@ const MyProfile = () => {
         <div>
             <h2 className="font-maven text-2xl font-semibold">{users.role} Details .</h2>
             <div className="border-t border-yellow my-2 w-42"></div>
-            <div className="md:flex gap-12 justify-between bg-gray-50 rounded-xl my-10">
+            <div className="flex flex-col-reverse md:flex-row gap-12 justify-between bg-gray-50 rounded-xl my-10">
                 <div className="p-8 font-satisfy">
                     <h1 className="text-3xl  ">Name :{users.name}</h1>
                     <h4 className="text-xl my-4"> {users.role}</h4>
@@ -28,7 +28,7 @@ const MyProfile = () => {
                 </div>
 
 
-                <img className="w-64 h-64 rounded-r-xl" src={users.photo || user?.photoURL} alt="" />
+                <img className="w-64 h-64 rounded-xl mx-auto md:mx-0 md:rounded-r-xl" src={users.photo || user?.photoURL} alt="" />
             </div>
             <form className='max-w-3xl mx-auto'>
                 <div className='flex items-center gap-3'>
