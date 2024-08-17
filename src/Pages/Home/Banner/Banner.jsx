@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className='flex-col-reverse flex md:flex-row  items-center bg-gray-50 gap-8 lg:py-24 py-20'>
             <div className='md:w-1/3'>
-                <img className='w-1/2 md:w-full mx-auto' src={banner1} alt="" />
+                <img className='w-3/4 md:w-full mx-auto' src={banner1} alt="" />
 
             </div>
             <div className='text-center mt-14 lg:mt-0 '>
@@ -16,7 +16,7 @@ const Banner = () => {
                     <Link to="/all-packages/Adventure">
                         <button
                             className="btn text-black flex gap-3 lg:mx-0 mx-auto items-center">
-                            ___EXplore with Our Tour guide <FaArrowUpRightFromSquare className="text-yellow" /> </button>
+                            ___EXplore With Us<FaArrowUpRightFromSquare className="text-yellow" /> </button>
                     </Link>
                     <Link to="/blogs">
                         <button
