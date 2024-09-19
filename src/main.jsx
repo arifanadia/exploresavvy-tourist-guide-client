@@ -7,6 +7,14 @@ import AuthProvider from './Providers/AuthProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HelmetProvider } from 'react-helmet-async'
 import { Toaster } from 'react-hot-toast'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
+AOS.init({
+  duration: 1000, 
+  once: true,     
+});
 
 
 

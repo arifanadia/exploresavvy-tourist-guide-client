@@ -22,6 +22,8 @@ import Blogs from "../Pages/Blogs/Blogs";
 import StoryDetails from "../Pages/StoryDetails/StoryDetails";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import MyAssignedTour from "../DashboardPages/TourGuideItem/MyAssignedTour/MyAssignedTour";
+import AboutUs from "../Pages/About-us/AboutUs";
+import ContactUs from "../Pages/Contact-us/ContactUs";
 
 
 
@@ -69,9 +71,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blog-details/:id',
-                element: <BlogDetails/>,
+                element: <BlogDetails />,
                 loader: ({ params }) => fetch(`https://exploresavvy-tourist-guide-server.vercel.app/blog-details/${params.id}`)
             },
+            {
+                path: '/about-us',
+                element: <AboutUs />
+            },
+            {
+                path: '/contact-us',
+                element: <ContactUs />
+            }
         ]
 
     },
@@ -115,7 +125,7 @@ const router = createBrowserRouter([
                 path: 'my-assigned-tour',
                 element: <MyAssignedTour></MyAssignedTour>
             },
-            
+
 
         ]
     }

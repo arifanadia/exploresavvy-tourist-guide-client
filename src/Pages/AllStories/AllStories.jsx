@@ -16,7 +16,7 @@ const AllStories = () => {
     return (
         <div>
             <PageHeader title={'Travel Stories are Always Amazing'} bg={bg}></PageHeader>
-            <div className=" gap-8 max-w-7xl mx-auto my-12 px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto my-12 px-4 sm:px-6 lg:px-8">
                 <div className="md:w-1/3 mb-8 md:mb-0">
                     <div className="form-control">
                         <input
@@ -74,7 +74,7 @@ const AllStories = () => {
                     </div>
                 </div>
                 <div className="md:w-2/3">
-                    <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
+                    <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
                         {touristStories.map(stories => (
                             <Link key={stories._id} to={`/tourist-stories-details/${stories._id}`}>
                                 <div className="rounded-xl border border-gray-200 w-full">

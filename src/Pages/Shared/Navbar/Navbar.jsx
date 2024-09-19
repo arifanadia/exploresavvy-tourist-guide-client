@@ -1,29 +1,72 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/icons/logo.png'
 import useAuth from "../../../Hooks/useAuth";
 import { HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 
 
 const Navbar = () => {
-    const {user,logOut} = useAuth();
+    const { user, logOut } = useAuth();
 
-    const handleLogOut = async() =>{
-        await logOut ()
+    const handleLogOut = async () => {
+        await logOut()
     }
 
 
 
     const navOptions =
         <>
-            <li className="active:text-yellow"><Link to="/">Home</Link></li>
-            <li className="active:text-yellow"><Link to="/all-packages/Adventure">All packages</Link></li>
-            <li><Link to="/community">Community</Link></li>
-            <li><Link to="/blogs">Blogs</Link></li>
-            <li><Link to="/about-us">About Us</Link></li>
-            <li><Link to="/contact-us">Contact Us</Link></li>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive }) => isActive ? 'text-white font-bold border border-lg border-yellow' : 'text-white'}
+                >
+                    Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/all-packages/Adventure"
+                    className={({ isActive }) => isActive ? 'text-yellow font-bold border border-lg border-yellow' : 'text-white'}
+                >
+                    All Packages
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/community"
+                    className={({ isActive }) => isActive ? 'text-yellow font-bold border border-lg border-yellow' : 'text-white'}
+                >
+                    Community
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/blogs"
+                    className={({ isActive }) => isActive ? 'text-yellow font-bold border border-lg border-yellow' : 'text-white'}
+                >
+                    Blogs
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/about-us"
+                    className={({ isActive }) => isActive ? 'text-yellow font-bold border border-lg border-yellow' : 'text-white'}
+                >
+                    About Us
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/contact-us"
+                    className={({ isActive }) => isActive ? 'text-yellow font-bold border border-lg border-yellow' : 'text-white'}
+                >
+                    Contact Us
+                </NavLink>
+            </li>
+
         </>
     return (
-        <div className="navbar sticky top-0 z-10  bg-black text-white ">
+        <div className="navbar sticky top-0 z-10 bg-black text-white ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +82,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 z-10">
                     {navOptions}
 
                 </ul>

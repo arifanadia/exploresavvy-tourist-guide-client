@@ -1,0 +1,22 @@
+[
+    {
+        "name": "John Doe",
+        "role": "Travel Enthusiast & Blogger",
+        "iconColor": "from-blue-400 to-purple-500"
+    },
+    {
+        "name": "Jane Smith",
+        "role": "Adventure Seeker & Photographer",
+        "iconColor": "from-green-400 to-blue-500"
+    },
+    {
+        "name": "Alice Johnson",
+        "role": "Cultural Explorer",
+        "iconColor": "from-yellow-400 to-red-500"
+    },
+    {
+        "name": "Bob Brown",
+        "role": "Foodie & Traveler",
+        "iconColor": "from-orange-400 to-pink-500"
+    }
+]

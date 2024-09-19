@@ -1,7 +1,7 @@
-
+import { useState } from 'react';
 import usePackages from "../../Hooks/usePackages";
 import PageHeader from "../../Component/PageHeader";
-import bg from '../../assets/All packages/all.jpg'
+import bg from '../../assets/All packages/all.jpg';
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
@@ -10,32 +10,34 @@ import PacakgesByType from "./PacakgesByType";
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useParams } from "react-router-dom";
-import { useState } from "react";
-
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 const AllPakages = () => {
     const [packages] = usePackages();
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    console.log(packages);
-    const types = ['Adventure', 'Wildlife', 'Cultural', 'Food', 'Relaxation', 'Historical']
+    const types = ['Adventure', 'Wildlife', 'Cultural', 'Food', 'Relaxation', 'Historical'];
     const { tourType } = useParams();
-    console.log(tourType);
-    const initialIndex = types.indexOf(tourType)
+    const initialIndex = types.indexOf(tourType);
     const [tabIndex, setTabIndex] = useState(initialIndex);
 
-    const adventures = packages.filter(item => item.tourType === 'Adventure')
-    console.log(adventures);
-    const wildLife = packages.filter(item => item.tourType === 'Wildlife')
-    const cultural = packages.filter(item => item.tourType === 'Cultural')
-    const food = packages.filter(item => item.tourType === 'Food')
-    const relaxation = packages.filter(item => item.tourType === 'Relaxation')
-    const historical = packages.filter(item => item.tourType === 'Historical')
 
+
+    AOS.init({
+        duration: 1000, 
+        once: true,     
+    });
+
+
+    const adventures = packages.filter(item => item.tourType === 'Adventure');
+    const wildLife = packages.filter(item => item.tourType === 'Wildlife');
+    const cultural = packages.filter(item => item.tourType === 'Cultural');
+    const food = packages.filter(item => item.tourType === 'Food');
+    const relaxation = packages.filter(item => item.tourType === 'Relaxation');
+    const historical = packages.filter(item => item.tourType === 'Historical');
 
     const handleWishList = async (item) => {
-
-
         const packageData = {
             packageName: item.tripTitle,
             packagesImg: item.mainImage,
@@ -43,55 +45,55 @@ const AllPakages = () => {
             price: parseFloat(item.price),
             tourType: item.tourType,
             email: user?.email
+        };
 
-
+        try {
+            const res = await axiosSecure.post('/wishList', packageData);
+            if (res.data.insertedId) {
+                toast.success('Wishlist item added');
+            }
+        } catch (error) {
+            toast.error('Failed to add to wishlist');
         }
+    };
 
-        const res = await axiosSecure.post('/wishList', packageData)
-        if (res.data.insertedId) {
-            toast.success('wishlist are added')
-        }
-
-    }
     return (
-        <div className="">
+        <div>
             <Helmet>
                 <title> ExploreSavvy | Packages </title>
             </Helmet>
-            <PageHeader bg={bg} title={'Buy and explore nature'}></PageHeader>
+            <PageHeader bg={bg} title={'Buy and explore nature'} />
+
             <section className="max-w-7xl mx-auto my-12">
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList className={'uppercase text-center'}>
-                        <Tab>Adventure</Tab>
-                        <Tab>Wildlife</Tab>
-                        <Tab>Cultural</Tab>
-                        <Tab>Food</Tab>
-                        <Tab>Relaxation</Tab>
-                        <Tab>Historical</Tab>
-
+                    <TabList className="uppercase text-center">
+                        <Tab data-aos="fade-up">Adventure</Tab>
+                        <Tab data-aos="fade-up" data-aos-delay="100">Wildlife</Tab>
+                        <Tab data-aos="fade-up" data-aos-delay="200">Cultural</Tab>
+                        <Tab data-aos="fade-up" data-aos-delay="300">Food</Tab>
+                        <Tab data-aos="fade-up" data-aos-delay="400">Relaxation</Tab>
+                        <Tab data-aos="fade-up" data-aos-delay="500">Historical</Tab>
                     </TabList>
                     <TabPanel>
-                        <PacakgesByType tripPack={adventures} handleWishList={handleWishList}></PacakgesByType>
+                        <PacakgesByType tripPack={adventures} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={wildLife}></PacakgesByType>
+                        <PacakgesByType tripPack={wildLife} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={cultural}></PacakgesByType>
+                        <PacakgesByType tripPack={cultural} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={food}></PacakgesByType>
+                        <PacakgesByType tripPack={food} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={relaxation}></PacakgesByType>
+                        <PacakgesByType tripPack={relaxation} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={historical}></PacakgesByType>
+                        <PacakgesByType tripPack={historical} data-aos="fade-up" />
                     </TabPanel>
-
                 </Tabs>
             </section>
-
         </div>
     );
 };

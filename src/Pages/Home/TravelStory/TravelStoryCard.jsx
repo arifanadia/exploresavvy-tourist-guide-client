@@ -40,7 +40,7 @@ const TravelStoryCard = () => {
 
                 {
                     touristStories.map(item =>
-                        <SwiperSlide key={item.id} >
+                        <SwiperSlide key={item._id} >
                             <div className="group rounded-xl relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                                 <div className="h-96 w-full">
                                     <img className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src={item.image} alt="" />
