@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import bg from '../../assets/guide details/guidedetails.jpg'
+import bg from '/assets/guide details/guidedetails.jpg'
 import useAuth from '../../Hooks/useAuth'
 import { FaStar } from "react-icons/fa6";
 
@@ -8,7 +8,7 @@ const TourGuideDetails = () => {
     const guideDetails = useLoaderData();
 
     return (
-        <div className="bg-gray-100">
+        <div className="pt-32">
             {/* Header Section */}
             <div className="bg-no-repeat h-[300px] bg-cover bg-center text-center p-6 md:p-8 lg:p-12"
                 style={{ backgroundImage: `url(${bg})` }}>
@@ -69,21 +69,21 @@ const TourGuideDetails = () => {
                     </div>
                 </div>
 
-                <div className="bg-white text-black lg:w-2/4 mt-8 md:mt-0 rounded-xl p-6 md:p-8 lg:p-8">
-                    <h3 className="text-lg md:text-xl lg:text-2xl text-center">
-                        Review: <span className="text-yellow">({guideDetails.reviews.length}) Review</span>
+                <div className="bg-gray-200 h-min text-white lg:w-2/4 mt-8 md:mt-0 rounded-xl p-6 md:p-8 lg:p-8">
+                    <h3 className="text-lg md:text-xl lg:text-2xl text-center text-[#000435]">
+                        Review: <span className="text-yellow-400">({guideDetails.reviews.length}) Review</span>
                     </h3>
-                    <div className="border-t border-t-yellow w-24 md:w-32 lg:w-40 mx-auto my-4" />
-                    <h4 className="text-xl md:text-2xl lg:text-2xl font-semibold my-4 text-center">
+                    <div className="border-t border-t-yellow-400 w-24 md:w-32 lg:w-40 mx-auto my-4" />
+                    <h4 className="text-xl md:text-2xl lg:text-2xl font-semibold my-4 text-center text-[#000435]">
                         {guideDetails.name} Clients Review
                     </h4>
-                    <div className="border-t border-t-yellow w-24 md:w-32 lg:w-40 mx-auto my-4" />
+                    <div className="border-t border-t-yellow-400 w-24 md:w-32 lg:w-40 mx-auto my-4" />
                     <div className="md:grid md:grid-cols-2 lg:grid-cols-1 gap-4">
                         {guideDetails.reviews.map((item, index) =>
-                            <div key={index} className="flex flex-col border border-yellow p-4 mt-6 rounded-xl">
+                            <div key={index} className="flex flex-col border border-gray-100 bg-[#000435] p-4 mt-6 rounded-xl">
                                 <img className="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full" src={item.img} alt="" />
                                 <div className="mt-4 text-center">
-                                    <h3>{item.reviewer}</h3>
+                                    <h3 className="text-yellow-400">{item.reviewer}</h3>
                                     <p className="flex justify-center gap-2 md:gap-3 items-center my-3">
                                         <FaStar className="text-orange-400" />{item.rating}
                                     </p>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import usePackages from "../../Hooks/usePackages";
 import PageHeader from "../../Component/PageHeader";
-import bg from '../../assets/All packages/all.jpg';
+import bg from '/assets/All packages/all.jpg';
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
@@ -21,7 +21,7 @@ const AllPakages = () => {
     const { tourType } = useParams();
     const initialIndex = types.indexOf(tourType);
     const [tabIndex, setTabIndex] = useState(initialIndex);
-
+    const [wishlist, setWishlist] = useState({});
 
 
     AOS.init({
@@ -51,6 +51,7 @@ const AllPakages = () => {
             const res = await axiosSecure.post('/wishList', packageData);
             if (res.data.insertedId) {
                 toast.success('Wishlist item added');
+                setWishlist((prevWishlist) => ({ ...prevWishlist, [item._id]: true }));
             }
         } catch (error) {
             toast.error('Failed to add to wishlist');
@@ -64,7 +65,7 @@ const AllPakages = () => {
             </Helmet>
             <PageHeader bg={bg} title={'Buy and explore nature'} />
 
-            <section className="max-w-7xl mx-auto my-12">
+            <section className="max-w-7xl mx-auto py-12">
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                     <TabList className="uppercase text-center">
                         <Tab data-aos="fade-up">Adventure</Tab>
@@ -75,22 +76,22 @@ const AllPakages = () => {
                         <Tab data-aos="fade-up" data-aos-delay="500">Historical</Tab>
                     </TabList>
                     <TabPanel>
-                        <PacakgesByType tripPack={adventures} handleWishList={handleWishList} data-aos="fade-up" />
+                        <PacakgesByType tripPack={adventures} wishlist={wishlist} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={wildLife} data-aos="fade-up" />
+                        <PacakgesByType tripPack={wildLife} wishlist={wishlist} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={cultural} data-aos="fade-up" />
+                        <PacakgesByType tripPack={cultural} wishlist={wishlist} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={food} data-aos="fade-up" />
+                        <PacakgesByType tripPack={food} wishlist={wishlist} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={relaxation} data-aos="fade-up" />
+                        <PacakgesByType tripPack={relaxation} wishlist={wishlist} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                     <TabPanel>
-                        <PacakgesByType tripPack={historical} data-aos="fade-up" />
+                        <PacakgesByType tripPack={historical} wishlist={wishlist} handleWishList={handleWishList} data-aos="fade-up" />
                     </TabPanel>
                 </Tabs>
             </section>

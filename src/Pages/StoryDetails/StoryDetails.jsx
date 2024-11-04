@@ -10,7 +10,7 @@ const StoryDetails = () => {
     return (
         <div>
             <div 
-                className="bg-no-repeat p-6 sm:p-12  md:p-36 bg-cover bg-center text-center"
+                className="bg-no-repeat pt-24 p-8 sm:p-12  md:p-36 bg-cover bg-center text-center"
                 style={{
                     backgroundImage: `linear-gradient(
                     #0f0c29ED,#302b6336),url(${storyDetails.image})`
@@ -51,13 +51,13 @@ const StoryDetails = () => {
                     </p>
                 </div>
             </div>
-            <div className="max-w-full sm:max-w-7xl mx-auto px-4 sm:px-0">
+            <div className="max-w-full sm:max-w-7xl mx-auto px-4 sm:px-0 pb-12">
                 <h3 className="text-lg sm:text-xl font-maven">
                     The Amazing Story :
                 </h3>
-                <div className="border-t border-t-yellow my-2 sm:my-3 w-40 sm:w-52"></div>
+                <div className="border-t border-t-yellow-400 my-2 sm:my-3 w-40 sm:w-52"></div>
                 <p className="text-base sm:text-lg my-2 sm:my-3">
-                    History of {storyDetails.destination}
+                    History of <span className="text-yellow-400">{storyDetails.destination}</span>
                 </p>
                 <p>{storyDetails.description.history}</p>
                 <p>{storyDetails.description.geography}</p>

@@ -3,3 +3,24 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Satisfy&display=swap');
+
+@layer utilities {
+    .overview-card {
+        @apply bg-[#000435] rounded-xl p-6 text-center
+    }
+    .overview-icon {
+        @apply text-yellow-400 text-3xl mb-4
+    }
+    .form-head{
+        @apply  w-full relative
+    }
+    .form-input{
+        @apply py-3 w-full bg-transparent border-b border-gray-300 hover:border-2 hover:border-yellow-400  pl-12
+    }
+    .form-icon {
+        @apply absolute text-gray-100 text-xl top-12 left-3
+    }
+    .form-btn{
+        @apply btn my-6 hover:border-2 hover:border-yellow-400 text-yellow-400 hover:bg-[#000435] bg-white bg-opacity-10 backdrop-blur-md w-full transition-all transform
+    }
+}

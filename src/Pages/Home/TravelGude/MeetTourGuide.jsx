@@ -69,15 +69,15 @@ const MeetTourGuide = () => {
                                         <img className=" w-full h-[200px] rounded-t-xl" src={guide.photo} alt="tour guide image" />
                                     </div>
                                     <div className="rounded-b-xl flex gap-4 p-6 text-2xl text-center justify-center mt-8 ">
-                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaFacebook /></p>
-                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaTwitter /></p>
-                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaYoutube /></p>
-                                        <p className="p-1 rounded-full bg-gray-50  border border-gray-100"><FaInstagram /></p>
+                                        <p className="p-1 rounded-full text-blue-600 border border-blue-600"><FaFacebook /></p>
+                                        <p className="p-1 rounded-full text-blue-400  border border-blue-400"><FaTwitter /></p>
+                                        <p className="p-1 rounded-full text-red-600  border border-red-600"><FaYoutube /></p>
+                                        <p className="p-1 rounded-full text-pink-700 border border-pink-700"><FaInstagram /></p>
 
                                     </div>
-                                    <div className="absolute right-2 text-gray-50 left-2 rounded-xl text-center bottom-20 bg-gray-900 p-2">
+                                    <div className="absolute right-2 text-gray-50 left-2 rounded-xl text-center bottom-20 bg-blue-950 p-2">
                                         <h3 className="text-xl font-semibold font-maven mt-2">{guide.name}</h3>
-                                        <p className="my-2">Tour Guide</p>
+                                        <p className="my-2 text-yellow-400">Tour Guide</p>
 
                                     </div>
                                 </div>

@@ -7,7 +7,8 @@ import TravelStory from "../TravelStory/TravelStory";
 
 const Home = () => {
     return (
-        <div>
+        <div className="white "
+       >
             <Banner></Banner>
             <TravelGuide></TravelGuide>
             <TourType></TourType>

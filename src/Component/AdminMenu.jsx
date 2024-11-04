@@ -9,7 +9,7 @@ import { FaHome } from "react-icons/fa";
 const AdminMenu = () => {
     return (
         <div>
-           <ul className="menu text-center ">
+           <ul className="menu text-center text-gray-100 ">
                 <li className="ml-10"><NavLink to="/dashboard/admin-dashboard"><CgProfile />My Dashboard</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/my-profile"><CgProfile />My Profile</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/add-packages"><IoIosAddCircle />Add Packages </NavLink></li>

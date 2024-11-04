@@ -4,16 +4,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import icon1 from '../../assets/icons/landscape (1).png';
-import icon2 from '../../assets/icons/duck.png';
-import icon3 from '../../assets/icons/vase.png';
-import icon4 from '../../assets/icons/fish.png';
-import icon5 from '../../assets/icons/sunbed.png';
-import icon6 from '../../assets/icons/skyscraper-building.png';
+import icon1 from '/assets/icons/landscape (1).png';
+import icon2 from '/assets/icons/duck.png';
+import icon3 from '/assets/icons/vase.png';
+import icon4 from '/assets/icons/fish.png';
+import icon5 from '/assets/icons/sunbed.png';
+import icon6 from '/assets/icons/skyscraper-building.png';
 
 const TourType = () => {
     return (
-        <section className="bg-gray-100 py-12">
+        <section className="bg-[#000435] py-12">
             <SectionTitle
                 title={'Explore Our Tour Types'}
                 subTitle={'Discover a variety of tours tailored to different interests and experiences'}

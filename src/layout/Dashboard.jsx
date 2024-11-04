@@ -31,9 +31,9 @@ const Dashboard = () => {
             if (role === 'admin') {
                 navigate('/dashboard/admin-dashboard');
             } else if (role === 'tour guide') {
-                navigate('/dashboard/tour-guide-dashboard');
+                navigate('/dashboard/my-profile');
             } else if (role === 'tourist') {
-                navigate('/dashboard/tourist-dashboard');
+                navigate('/dashboard/my-profile');
             }
         }
     }, [role, isLoading, navigate]);
@@ -67,7 +67,7 @@ const Dashboard = () => {
                         src={user?.photoURL}
                         sx={{ width: 100, height: 100 }}
                     />
-                    <h2 className="text-yellow font-semibold mt-4 text-2xl">{user?.displayName}</h2>
+                    <h2 className="text-yellow-400 font-semibold mt-4 text-2xl">{user?.displayName}</h2>
                     <p className="text-gray-400 mt-1">{user?.email}</p>
                     <div className="mt-6">
                         <div className="border-t border-gray-700 mb-4"></div>

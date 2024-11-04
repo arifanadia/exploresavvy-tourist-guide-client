@@ -61,8 +61,7 @@ const TouristMenu = () => {
                 }
 
             </div>
-            <ul className="menu text-center text-gray-400 ">
-                <li className="ml-10"><NavLink to="/dashboard"><CgProfile />My Dashboard</NavLink></li>
+            <ul className="menu text-center text-gray-100 ">
                 <li className="ml-10"><NavLink to="/dashboard/my-profile"><CgProfile />My Profile</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/bookings"><HiCalendar />My Booking</NavLink></li>
                 <li className="ml-10"><NavLink to="/dashboard/my-wishlist"><FaHeart />My Wishlist</NavLink></li>

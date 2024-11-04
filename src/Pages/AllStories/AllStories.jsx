@@ -1,12 +1,13 @@
+import { IoSearch } from "react-icons/io5";
 import PageHeader from "../../Component/PageHeader";
 import useBlogs from "../../Hooks/useBlogs";
 import useTouristStories from "../../Hooks/useTouristStories";
-import bg from '../../assets/all stories/storiesall.jpg'
-import type2 from '../../assets/blog/1_a92GOsmtF8jaXFduhWLPgw.jpg'
-import type3 from '../../assets/blog/Best-Places-to-Travel-this-Winter-Season-Sundarbans.jpg'
-import type4 from '../../assets/blog/near-watch-tower.jpg'
-import type5 from '../../assets/blog/sundarban.jpg'
-import type6 from '../../assets/blog/Train20170619140222.jpg'
+import bg from '/assets/all stories/storiesall.jpg'
+import type2 from '/assets/blog/1_a92GOsmtF8jaXFduhWLPgw.jpg'
+import type3 from '/assets/blog/Best-Places-to-Travel-this-Winter-Season-Sundarbans.jpg'
+import type4 from '/assets/blog/near-watch-tower.jpg'
+import type5 from '/assets/blog/sundarban.jpg'
+import type6 from '/assets/blog/Train20170619140222.jpg'
 import { Link } from "react-router-dom";
 
 const AllStories = () => {
@@ -18,12 +19,13 @@ const AllStories = () => {
             <PageHeader title={'Travel Stories are Always Amazing'} bg={bg}></PageHeader>
             <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto my-12 px-4 sm:px-6 lg:px-8">
                 <div className="md:w-1/3 mb-8 md:mb-0">
-                    <div className="form-control">
+                    <div className="form-control form-head">
                         <input
                             type="text"
                             placeholder="Search"
-                            className="input input-bordered w-full md:w-auto"
+                            className="form-input"
                         />
+                        <IoSearch className="absolute top-4 left-3 text-xl" />
                     </div>
                     <div className="my-8">
                         <h1 className="text-xl font-satisfy font-semibold">Tour Types</h1>
@@ -58,15 +60,15 @@ const AllStories = () => {
                             Historical
                         </p>
                     </div>
-                    <div className=" border border-gray-100 rounded-2xl bg-gray-50 p-6 space-y-4">
-                        <h1 className="text-xl font-satisfy font-semibold">Blogs</h1>
+                    <div className="  bg-[#000435] rounded-2xl p-6 space-y-4">
+                        <h1 className="text-xl font-maven font-semibold">Blogs</h1>
                         <div className="grid grid-cols-2 md:grid-cols-1">
                             {blogs.map(blog => (
                                 <div key={blog._id} className="lg:flex gap-3 items-center mt-4 text-center lg:text-left">
                                     <img className="w-20 h-20 lg:mx-0 mx-auto rounded-xl" src={blog.image} alt="" />
                                     <div>
                                         <h5 className="font-semibold font-satisfy mt-2 lg:mt-0 ">{blog.title}</h5>
-                                        <p className="my-3 text-sm">{blog.date}</p>
+                                        <p className="my-3 text-sm text-yellow-400">{blog.date}</p>
                                     </div>
                                 </div>
                             ))}

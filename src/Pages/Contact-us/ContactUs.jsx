@@ -1,8 +1,6 @@
 import{ useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-
-import bg from '../../assets/home/contact-us.jpg'
-import { FaPaperPlane } from 'react-icons/fa';
+import bg from '/assets/home/contact-us.jpg'
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -59,7 +57,7 @@ const ContactUs = () => {
 
             <div className="max-w-4xl mx-auto px-4 py-12">
                 <div className="grid md:grid-cols-2 gap-8">
-                    {/* Contact Information */}
+                  
                     <div className="bg-white rounded-lg shadow-lg p-6">
                         <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
                         <p className="text-gray-700 mb-4">
@@ -79,7 +77,7 @@ const ContactUs = () => {
                         </div>
                     </div>
 
-                    {/* Contact Form */}
+            
                     <div className="bg-white rounded-lg shadow-lg p-6">
                         <h2 className="text-2xl font-bold mb-4">Send Us a Message</h2>
                         <form onSubmit={handleSubmit}>

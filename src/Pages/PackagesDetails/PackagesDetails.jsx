@@ -87,7 +87,7 @@ const PackagesDetails = () => {
     };
 
     return (
-        <div className="flex flex-col lg:flex-row justify-between max-w-7xl mx-auto font-satisfy mt-12 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between max-w-7xl mx-auto font-satisfy pt-32 gap-8">
             <AllAboutPackage packageDetails={packageDetails} />
             <div className="min-h-screen w-full lg:w-1/2">
                 <div className="mt-6">
@@ -101,7 +101,7 @@ const PackagesDetails = () => {
                         </div>
                         <div className="divider my-4"></div>
                         <div>
-                            <form onSubmit={handleBookNow} className="border border-gray-100 font-maven rounded-lg p-6 mt-6">
+                            <form onSubmit={handleBookNow} className="border border-gray-100 font-maven rounded-lg p-6 mt-6 text-[#000435]">
                                 <div className="form-control w-full">
                                     <div className="label">
                                         <span className="label-text">Name</span>
@@ -149,7 +149,7 @@ const PackagesDetails = () => {
                                         <option></option>
                                     }
                                 </select>
-                                <button type='submit' className='btn my-6 btn-outline text-white bg-black w-full'>Book Now</button>
+                                <button type='submit' className='btn bg-white bg-opacity-20 backdrop-blur-md my-6 hover:btn-outline text-yellow-400 hover:bg-[#000435] w-full'>Book Now</button>
                             </form>
                         </div>
                     </div>
